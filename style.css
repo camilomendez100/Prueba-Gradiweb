@@ -1,0 +1,99 @@
+*{
+   margin: 0px;
+    padding: 0px; 
+}
+body{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #171616;
+	background-color: #DFF9F9; 
+}
+.container{
+    width: 80%; 
+    max-width: 1000px;
+    margin: 10px;
+}
+.bogota{
+    width: 100%;
+    border-radius: 10px;
+    background: url("https://es.investinbogota.org/sites/default/files/node/news/field_news_imagen/Emprendimientos%20en%20Bogota%CC%81.jpg");
+    box-shadow: 5px 5px 10px #191b1b, -5px -5px 10px #595959;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+.paris{
+    width: 50%;
+    float: right;
+    border-radius: 10px;
+    background: url("https://cuantomide.files.wordpress.com/2012/04/eiffel.jpg");
+    box-shadow: 5px 5px 10px #191b1b, -5px -5px 10px #595959;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.dias{
+    width: 48%;
+    background: #5CA2A2;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px #191b1b, -5px -5px 10px #595959;
+    padding: 10px;
+    box-sizing: border-box;    
+}
+.bogota h1 {
+    font-size: 2rem;
+    font-weight: 500;
+    margin: 1rem 0;
+}
+.bogota h2 {
+    font-size: 4rem;
+    font-weight: 400;
+    margin: 1rem 0;
+}
+.paris h1 {
+    font-size: 1rem;
+    font-weight: 300;
+    margin: 1rem 0;
+    color: #fff;
+}
+.paris h2 {
+    font-size: 2rem;
+    font-weight: 300;
+    margin: 1rem 0;
+    color: #fff;
+}
+img#icon {
+    width: 10%;
+}
+button.refresh {
+    display: block;    
+    margin: 1px auto;
+    background: #9E9F9F;
+    color: #EBF5F4;
+    padding: 5px;
+    font-size: 20px;   
+    border-radius: 50px;
+    box-shadow: 10px 4px 18px #252525, 5px 5px 18px #4a4a4a;
+
+}
+button.refresh:hover{
+	box-shadow: inset 5px 2px 9px #252525;
+}
+@media screen and (max-width: 800px){
+
+    .paris{
+        width: 100%;
+       
+    }
+    .dias {
+        width: 100%;
+        float: left;
+        margin-top: 20px;
+    }
+}
+@media screen and (max-width: 400px){
+
+    .container {
+        width: 100%;
+    }
+}

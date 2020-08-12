@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Prueba Gradiweb</title>
+  <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximun-scale=1.0, minimun-scale=1.0">
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="bogota">
+     
+        <h1><i class="fa fa-map-marker"></i> <span id="location"></span></h1>
+        <h1 id="weather"></h1>
+        <h2><span id="temp"></span><sup>o</sup>C</h2>
+        <img id="icon" src="">
+      
+      <button onClick="window.location.reload();" class="refresh"><i class="fa fa-refresh"></i></button>
+    </div>
+
+    <div class="paris">
+      <h2><i class="fa fa-map-marker"></i> <span id="locationn"></span></h2>
+      <h1 id="weatherr"></h1>
+      <h1><span id="tempp"></span><sup>o</sup>C</h1>
+      <img id="iconn" src="">
+    </div>
+ 
+    <div class="dias">
+
+      <div>
+        <h4><span id="temppp"></span><sup>o</sup>C</h4>
+        <h3 id="weatherrr"></h3>
+        <h3 id="time"></h3>
+        <h3 id="day"></h3>
+        <h3 id="forecast"></h3>
+        <h3 id="time"></h3>
+        <img id="iconnn" src="">
+      </div>
+      <div>
+        <<h4><span id="temppp"></span><sup>o</sup>C</h4>
+        <h3 id="weatherrr"></h3>
+        <h3 id="time"></h3>
+        <h3 id="day"></h3>
+        <h3 id="forecast"></h3>
+        <h3 id="time"></h3>
+        <img id="iconnn" src="">
+      </div>
+      <div>
+        <h4><span id="temppp"></span><sup>o</sup>C</h4>
+        <h3 id="weatherrr"></h3>
+        <h3 id="time"></h3>
+        <h3 id="day"></h3>
+        <h3 id="forecast"></h3>
+        <h3 id="time"></h3>
+        <img id="iconnn" src="">
+      </div>
+    </div>
+  </div>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+<script type="text/javascript">
+
+apibogota = "https://api.openweathermap.org/data/2.5/weather?q=bogota,co&appid=63ea26cdc5af771f4e3b9a7bcef05c80";
+
+apiparis = "https://api.openweathermap.org/data/2.5/weather?q=paris,fr&appid=63ea26cdc5af771f4e3b9a7bcef05c80";
+
+tiempo = "https://api.openweathermap.org/data/2.5/forecast?q=bogota,co&mode=xml&appid=63ea26cdc5af771f4e3b9a7bcef05c80";
+
+var request = new XMLHttpRequest();
+request.open('GET',apibogota,true);
+request.onload = function(){
+ var obj = JSON.parse(this.response);
+ console.log(obj);
+ document.getElementById('weather').innerHTML = obj.weather[0].description;
+ document.getElementById('location').innerHTML = obj.name;
+ document.getElementById('temp').innerHTML = obj.main.temp - 273.15;
+ document.getElementById('icon').src = "http://openweathermap.org/img/w/" + obj.weather[0].icon + ".png";
+
+ if (request.status >= 200 && request.status < 400) {
+ var temp = obj.main.temp;
+ }
+ else{
+  console.log("The city doesn't exist! Kindly check");
+ }
+}
+request.send();
+
+
+
+var requestt = new XMLHttpRequest();
+requestt.open('GET',apiparis,true);
+requestt.onload = function(){
+ var objj = JSON.parse(this.response);
+ console.log(objj);
+ document.getElementById('weatherr').innerHTML = objj.weather[0].description;
+ document.getElementById('locationn').innerHTML = objj.name;
+ document.getElementById('tempp').innerHTML = objj.main.temp - 273.15;
+ document.getElementById('iconn').src = "http://openweathermap.org/img/w/" + objj.weather[0].icon + ".png";
+
+ if (requestt.status >= 200 && requestt.status < 400) {
+ var temp = objj.main.temp;
+ }
+ else{
+  console.log("The city doesn't exist! Kindly check");
+ }
+}
+requestt.send();
+
+
+
+
+var requesttt = new XMLHttpRequest();
+requesttt.open('GET',tiempo,true);
+requesttt.onload = function(){
+ var objjj = JSON.parse(this.response);
+ console.log(objjj);
+ document.getElementById('weatherrr').innerHTML = objjj.weather[0].description;
+ document.getElementById('forecast').innerHTML = objjj.forecast[0].description;
+ document.getElementById('time').innerHTML = objjj.time[0].description;
+ document.getElementById('day').innerHTML = objjj.name;
+ document.getElementById('locationnn').innerHTML = objjj.name;
+ document.getElementById('temppp').innerHTML = objjj.main.temp - 273.15;
+ document.getElementById('iconnn').src = "http://openweathermap.org/img/w/" + objjj.weather[0].icon + ".png";
+
+
+ if (requesttt.status >= 200 && requesttt.status < 400) {
+ var temp = objjj.main.temp;
+ }
+ else{
+  console.log("The city doesn't exist! Kindly check");
+ }
+}
+requesttt.send();
+
+
+
+
+</script>
+</html>
